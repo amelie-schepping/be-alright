@@ -1,0 +1,53 @@
+// Override Variables
+$font-family-base: "Instrument Serif", serif;
+
+$btn-font-style: italic;
+$btn-border-radius: 999rem;
+$btn-padding-y: 0.1rem;
+$btn-padding-x: 1.5rem;
+$btn-font-size: 1.2rem;
+
+$body-bg: #fcfbf9;
+$light: #fcfbf9;
+$primary: #333;
+$secondary: #8b8868;
+
+$form-range-track-height: 0.3rem;
+$form-range-track-bg: #333;
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+/* Scroll-Snap auf dem Viewport aktivieren */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth; /* optional, aber praktisch für Anker */
+}
+
+/* Jede Section füllt den Bildschirm und ist Snap-Punkt */
+.page-section {
+  min-height: 100svh; /* sicheres 100vh auf Mobile */
+  scroll-snap-align: start;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  font-size: 1.5rem;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-thickness: 1px;
+}
+
+.navbar.transparent {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about {
+  background: url("background.png") center center / cover no-repeat;
+}
