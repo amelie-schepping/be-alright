@@ -35,16 +35,16 @@
     <!-- Scroll-Container -->
     <main id="scroll-root">
       <!-- Home -->
-      <section id="home" class="page-section d-flex align-items-center">
+      <section
+        id="home"
+        class="page-section d-flex align-items-center bg-secondary">
         <div class="container text-center">
           <h1 class="display-4 mb-3">it's gonna be alright.</h1>
         </div>
       </section>
 
       <!-- About -->
-      <section
-        id="about"
-        class="page-section d-flex align-items-center bg-secondary">
+      <section id="about" class="page-section d-flex align-items-center">
         <div class="container">
           <h2 class="mb-4">About</h2>
           <p class="fs-5">Kurzer Text über dich / das Projekt …</p>
@@ -53,8 +53,50 @@
 
       <!-- Loop Station -->
       <section id="loop-station" class="page-section d-flex align-items-center">
-        <div class="container">
-          <h2 class="mb-4">Loop Station</h2>
+        <div class="container bg-light p-4 rounded w-25">
+          <h2 class="mb-4">loop station</h2>
+
+          <div class="d-flex flex-column gap-3">
+            <!-- Piano -->
+            <div class="d-flex align-items-center gap-3">
+              <button class="btn btn-outline-dark loop-btn" data-track="piano">
+                piano
+              </button>
+              <input
+                type="range"
+                class="form-range loop-vol"
+                data-track="piano"
+                min="0"
+                max="100"
+                step="1"
+                value="100"
+                style="width: 220px" />
+            </div>
+
+            <!-- Pad -->
+            <div class="d-flex align-items-center gap-3">
+              <button class="btn btn-outline-dark loop-btn" data-track="pad">
+                pad
+              </button>
+              <input
+                type="range"
+                class="form-range loop-vol"
+                data-track="pad"
+                min="0"
+                max="100"
+                step="1"
+                value="100"
+                style="width: 220px" />
+            </div>
+          </div>
+
+          <!-- optional: Master -->
+          <div class="mt-4 d-flex gap-3">
+            <button id="master-toggle" class="btn btn-dark">Play/Pause</button>
+            <button id="all-off" class="btn btn-outline-primary">
+              All Mute
+            </button>
+          </div>
         </div>
       </section>
     </main>

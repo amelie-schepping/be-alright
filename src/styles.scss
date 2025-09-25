@@ -10,7 +10,7 @@ $btn-font-size: 1.2rem;
 $body-bg: #fcfbf9;
 $light: #fcfbf9;
 $primary: #333;
-$secondary: #8b8868;
+$secondary: #f2eec9;
 
 $form-range-track-height: 0.3rem;
 $form-range-track-bg: #333;
@@ -28,6 +28,10 @@ html {
 .page-section {
   min-height: 100svh; /* sicheres 100vh auf Mobile */
   scroll-snap-align: start;
+}
+
+.btn {
+  font-style: italic;
 }
 
 .navbar {
@@ -48,6 +52,6 @@ html {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#about {
+#loop-station {
   background: url("background.png") center center / cover no-repeat;
 }
