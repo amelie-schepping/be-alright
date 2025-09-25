@@ -52,54 +52,68 @@
       </section>
 
       <!-- Loop Station -->
-      <section id="loop-station" class="page-section d-flex align-items-center">
-        <div class="container bg-light p-4 rounded w-25">
-          <h2 class="mb-4">loop station</h2>
+      <section
+        id="loop-station"
+        class="page-section d-flex align-items-center"></section>
+    </main>
 
-          <div class="d-flex flex-column gap-3">
-            <!-- Piano -->
-            <div class="d-flex align-items-center gap-3">
-              <button class="btn btn-outline-dark loop-btn" data-track="piano">
-                piano
-              </button>
-              <input
-                type="range"
-                class="form-range loop-vol"
-                data-track="piano"
-                min="0"
-                max="100"
-                step="1"
-                value="100"
-                style="width: 220px" />
-            </div>
+    <!-- Sidebar Toggle Button -->
+    <button
+      id="sidebar-toggle"
+      class="btn btn-outline-secondary sidebar-toggle"
+      aria-controls="loop-sidebar"
+      aria-expanded="false">
+      open loop station
+    </button>
 
-            <!-- Pad -->
-            <div class="d-flex align-items-center gap-3">
-              <button class="btn btn-outline-dark loop-btn" data-track="pad">
-                pad
-              </button>
-              <input
-                type="range"
-                class="form-range loop-vol"
-                data-track="pad"
-                min="0"
-                max="100"
-                step="1"
-                value="100"
-                style="width: 220px" />
-            </div>
+    <!-- Sidebar -->
+    <aside id="loop-sidebar" class="sidebar" aria-hidden="true">
+      <div class="sidebar-content">
+        <h2 class="mb-4">loop station</h2>
+
+        <div class="d-flex flex-column gap-3">
+          <!-- Piano -->
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-dark loop-btn" data-track="piano">
+              Piano
+            </button>
+            <input
+              type="range"
+              class="form-range loop-vol"
+              data-track="piano"
+              min="0"
+              max="100"
+              step="1"
+              value="100" />
           </div>
 
-          <!-- optional: Master -->
-          <div class="mt-4 d-flex gap-3">
-            <button id="master-toggle" class="btn btn-dark">Play/Pause</button>
-            <button id="all-off" class="btn btn-outline-primary">
-              All Mute
+          <!-- Pad -->
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-dark loop-btn" data-track="pad">
+              Pad
             </button>
+            <input
+              type="range"
+              class="form-range loop-vol"
+              data-track="pad"
+              min="0"
+              max="100"
+              step="1"
+              value="100" />
           </div>
         </div>
-      </section>
-    </main>
+
+        <div class="mt-4 d-flex gap-3">
+          <button id="master-toggle" class="btn btn-dark">play/pause</button>
+          <button id="all-off" class="btn btn-outline-secondary">
+            mute all
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Backdrop (für Click-outside) -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

@@ -232,3 +232,65 @@ document
     if (ctx.state === "running") await ctx.suspend();
     else await ctx.resume();
   });
+
+// ===== Sidebar Toggle + Click-Outside =====
+const sidebarEl = document.getElementById("loop-sidebar");
+const toggleEl = document.getElementById("sidebar-toggle");
+const backdropEl = document.getElementById("sidebar-backdrop");
+
+function openSidebar() {
+  sidebarEl.classList.add("active");
+  backdropEl.classList.add("show");
+  toggleEl.classList.add("open");
+  toggleEl.setAttribute("aria-expanded", "true");
+  sidebarEl.setAttribute("aria-hidden", "false");
+}
+
+function closeSidebar() {
+  sidebarEl.classList.remove("active");
+  backdropEl.classList.remove("show");
+  toggleEl.classList.remove("open");
+  toggleEl.setAttribute("aria-expanded", "false");
+  sidebarEl.setAttribute("aria-hidden", "true");
+}
+
+function toggleSidebar() {
+  if (sidebarEl.classList.contains("active")) closeSidebar();
+  else openSidebar();
+}
+
+toggleEl?.addEventListener("click", toggleSidebar);
+backdropEl?.addEventListener("click", closeSidebar);
+
+// ESC zum Schließen
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && sidebarEl.classList.contains("active")) {
+    closeSidebar();
+  }
+});
+
+// ===== Toggle-Button nur in #loop-station zeigen =====
+const loopSection = document.getElementById("loop-station");
+
+// eigener Observer nur für diese Section
+const toggleVisObserver = new IntersectionObserver(
+  (entries) => {
+    const e = entries[0];
+    if (e.isIntersecting) {
+      toggleEl.classList.add("visible");
+      // optional: sicherstellen, dass er nicht als "open" markiert ist
+      if (!sidebarEl.classList.contains("active")) {
+        toggleEl.classList.remove("open");
+      }
+    } else {
+      toggleEl.classList.remove("visible");
+      // Beim Verlassen der Section Sidebar schließen (optional, meist sinnvoll)
+      if (sidebarEl.classList.contains("active")) {
+        closeSidebar();
+      }
+    }
+  },
+  { threshold: 0.5 } // ab ~50% der Section sichtbar
+);
+
+toggleVisObserver.observe(loopSection);
