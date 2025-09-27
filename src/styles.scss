@@ -11,6 +11,7 @@ $body-bg: #fcfbf9;
 $light: #fcfbf9;
 $primary: #333;
 $secondary: #eb9c35;
+$info: #f2efd5;
 
 $form-range-track-height: 0.3rem;
 $form-range-track-bg: #333;
@@ -24,6 +25,9 @@ html {
   scroll-behavior: smooth; /* optional, aber praktisch für Anker */
 }
 
+p {
+  font-family: "Instrument Sans", sans-serif;
+}
 /* Jede Section füllt den Bildschirm und ist Snap-Punkt */
 .page-section {
   min-height: 100svh; /* sicheres 100vh auf Mobile */
@@ -53,24 +57,26 @@ html {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#loop-station {
-  background: url("background.png") center center / cover no-repeat;
+#loop-station,
+#home {
+  background: url("/be-alright/background.png") center center / cover no-repeat;
 }
 
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 40%; /* Abstand von oben, z. B. unter Navbar */
+  top: 25%; /* Abstand von oben, z. B. unter Navbar */
   left: 8%; /* etwas vom Rand weg */
-  width: 320px; /* feste oder max Breite */
+  width: 450px; /* feste oder max Breite */
   max-height: 80vh; /* begrenzt die Höhe */
   background: #fcfbf9;
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   /* Start: ausgeblendet */
-  transform: translateX(-140%);
+  transform: translateX(-200%);
   transition: transform 0.3s ease;
+
   z-index: 1050;
   padding: 1.5rem;
   overflow-y: auto;
@@ -80,31 +86,9 @@ html {
   transform: translateX(0);
 }
 
-/* Toggle-Button – unten mittig fixieren */
-.sidebar-toggle {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1100;
-  border-radius: 999rem;
-  padding: 0.5rem 0.9rem;
-
-  /* standardmäßig unsichtbar; JS schaltet .visible */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
+.loop-btn {
+  width: 250px;
 }
-
-/* sichtbar NUR wenn wir in der Loop-Station sind */
-.sidebar-toggle.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-.sidebar-toggle.open {
-  opacity: 0;
-  pointer-events: none;
-} /* ausblenden wenn offen */
 
 /* Backdrop */
 .sidebar-backdrop {
@@ -116,7 +100,18 @@ html {
   transition: opacity 0.3s ease;
   z-index: 1040; /* unter Sidebar, über Content */
 }
+
 .sidebar-backdrop.show {
   opacity: 1;
   pointer-events: auto;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
+strong {
+  font-family: "Instrument Serif", serif;
+  font-size: 2rem;
+  color: $secondary;
 }

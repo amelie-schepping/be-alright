@@ -23,7 +23,7 @@ const observer = new IntersectionObserver(
 
       // Navbar-Transparenz
       const id = entry.target.id;
-      if (id === "about" || id === "loop-station") {
+      if (id === "about" || id === "loop-station" || id === "behindthesong") {
         navbar.classList.add("transparent");
       } else {
         navbar.classList.remove("transparent");
@@ -40,7 +40,10 @@ sections.forEach((section) => observer.observe(section));
    =========================== */
 const tracks = [
   { id: "piano", url: "/be-alright/audio/piano.wav" },
-  { id: "pad", url: "/be-alright/audio/pad.wav" },
+  { id: "pads", url: "/be-alright/audio/pads.wav" },
+  { id: "eguitar", url: "/be-alright/audio/eguitar.wav" },
+  { id: "birds", url: "/be-alright/audio/birds.wav" },
+  { id: "guitar", url: "/be-alright/audio/guitar.wav" },
 ];
 
 let ctx = null;
@@ -268,29 +271,3 @@ document.addEventListener("keydown", (e) => {
     closeSidebar();
   }
 });
-
-// ===== Toggle-Button nur in #loop-station zeigen =====
-const loopSection = document.getElementById("loop-station");
-
-// eigener Observer nur für diese Section
-const toggleVisObserver = new IntersectionObserver(
-  (entries) => {
-    const e = entries[0];
-    if (e.isIntersecting) {
-      toggleEl.classList.add("visible");
-      // optional: sicherstellen, dass er nicht als "open" markiert ist
-      if (!sidebarEl.classList.contains("active")) {
-        toggleEl.classList.remove("open");
-      }
-    } else {
-      toggleEl.classList.remove("visible");
-      // Beim Verlassen der Section Sidebar schließen (optional, meist sinnvoll)
-      if (sidebarEl.classList.contains("active")) {
-        closeSidebar();
-      }
-    }
-  },
-  { threshold: 0.5 } // ab ~50% der Section sichtbar
-);
-
-toggleVisObserver.observe(loopSection);
