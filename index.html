@@ -10,8 +10,8 @@
       rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>be-alright</title>
-    <script type="module" crossorigin src="/be-alright/assets/index-BIXjHEJF.js"></script>
-    <link rel="stylesheet" crossorigin href="/be-alright/assets/index-Bq2Cckv9.css">
+    <script type="module" crossorigin src="/be-alright/assets/index-V35s9VBh.js"></script>
+    <link rel="stylesheet" crossorigin href="/be-alright/assets/index-B5gwWlD2.css">
   </head>
   <body>
     <!-- Navbar -->
@@ -41,43 +41,141 @@
         id="home"
         class="page-section d-flex align-items-center bg-secondary">
         <div class="container text-center">
-          <h1 class="display-4 mb-3">it's gonna be alright.</h1>
+          <h1 class="display-1 mb-3 text-light">it's gonna be alright.</h1>
         </div>
       </section>
 
       <!-- About -->
       <section id="about" class="page-section d-flex align-items-center">
         <div class="container">
-          <h2 class="mb-4">About</h2>
-          <p class="fs-5">Kurzer Text über dich / das Projekt …</p>
+          <div class="row align-items-center gx-0">
+            <!-- Text -->
+            <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+              <h1 class="display-4 mb-4">About</h1>
+              <p class="fs-5">
+                The very first notes of
+                <em><strong>"be alright"</strong></em> were born in the
+                Normandy.
+                <br />
+                I was sitting outside in the sun with my guitar, surrounded by
+                stillness. A cat slowly drifted into sleep nearby, while birds
+                filled the air with their songs. In that quiet, peaceful moment,
+                I was reminded of how beautiful life can be. <br /><br />
+                Having passed through days that felt heavier than others, I’ve
+                come to see how important it is to hold on to those fragments of
+                peace. The ones that whisper that, in the end, everything will
+                fall into place. <br /><br />
+                The song is written like a letter to a younger version of
+                myself. One who carried doubts and fears of the future. It’s a
+                gentle reminder that time brings healing, that love always finds
+                its way back, and that, eventually,
+                <strong>it’s going to be alright.</strong>
+              </p>
+            </div>
+
+            <!-- Video -->
+            <div class="col-12 col-lg d-flex justify-content-lg-end pe-lg-0">
+              <div
+                class="ratio rounded-4 overflow-hidden"
+                style="--bs-aspect-ratio: 177.78%; max-width: 315px">
+                <iframe
+                  class="w-100 h-100"
+                  src="https://youtube.com/embed/YpmH2E2OAzQ?si=iq51ppbRkunr07nS"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  loading="lazy"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="behindthesong"
+        class="page-section d-flex align-items-center bg-info">
+        <div class="container">
+          <div class="row align-items-center">
+            <h1 class="display-4 mb-5 text-center">Behind The Song</h1>
+
+            <!-- Video -->
+            <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+              <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
+                <iframe
+                  class="w-100 h-100"
+                  src="https://www.youtube.com/embed/1TQ_tEMyYE0?si=mBFa7QrEATCtF3uO"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  loading="lazy"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+
+            <!-- Text -->
+            <div class="col-12 col-lg text-center">
+              <p class="fs-5">
+                In this video you’ll see me recording each instrument, layer by
+                layer, until the pieces come together as one. I’ve woven in
+                video fragments I captured throughout this year. <br /><br />
+                Scenes that reminded me of <br />
+                <em><strong>the simple joy of being alive.</strong></em>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Loop Station -->
-      <section
-        id="loop-station"
-        class="page-section d-flex align-items-center"></section>
-    </main>
+      <section id="loop-station" class="page-section d-flex align-items-center">
+        <div class="container text-center">
+          <h1 class="display-1 mb-2 text-light">
+            just take a deep breath,
+            <br />
+            it's gonna be just fine.
+          </h1>
 
-    <!-- Sidebar Toggle Button -->
-    <button
-      id="sidebar-toggle"
-      class="btn btn-outline-secondary sidebar-toggle"
-      aria-controls="loop-sidebar"
-      aria-expanded="false">
-      open loop station
-    </button>
+          <button
+            id="sidebar-toggle"
+            class="btn btn-outline-secondary sidebar-toggle"
+            aria-controls="loop-sidebar"
+            aria-expanded="false">
+            open loop station
+          </button>
+        </div>
+      </section>
+    </main>
 
     <!-- Sidebar -->
     <aside id="loop-sidebar" class="sidebar" aria-hidden="true">
       <div class="sidebar-content">
-        <h2 class="mb-4">loop station</h2>
+        <h1 class="">loop station</h1>
+        <p class="mb-4 fs-6">
+          This section is designed to let your thoughts drift. <br />
+          Blend different sounds, shape your own atmosphere, and create a mix
+          that feels uniquely yours.
+        </p>
 
+        <!-- guitar -->
         <div class="d-flex flex-column gap-3">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-dark loop-btn" data-track="guitar">
+              guitar
+            </button>
+            <input
+              type="range"
+              class="form-range loop-vol"
+              data-track="guitar"
+              min="0"
+              max="100"
+              step="1"
+              value="100" />
+          </div>
+
           <!-- Piano -->
           <div class="d-flex align-items-center gap-3">
             <button class="btn btn-outline-dark loop-btn" data-track="piano">
-              Piano
+              piano
             </button>
             <input
               type="range"
@@ -91,22 +189,52 @@
 
           <!-- Pad -->
           <div class="d-flex align-items-center gap-3">
-            <button class="btn btn-outline-dark loop-btn" data-track="pad">
-              Pad
+            <button class="btn btn-outline-dark loop-btn" data-track="pads">
+              pads
             </button>
             <input
               type="range"
               class="form-range loop-vol"
-              data-track="pad"
+              data-track="pads"
+              min="0"
+              max="100"
+              step="1"
+              value="100" />
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-dark loop-btn" data-track="eguitar">
+              e-guitar
+            </button>
+            <input
+              type="range"
+              class="form-range loop-vol"
+              data-track="eguitar"
+              min="0"
+              max="100"
+              step="1"
+              value="100" />
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-dark loop-btn" data-track="birds">
+              birds
+            </button>
+            <input
+              type="range"
+              class="form-range loop-vol"
+              data-track="birds"
               min="0"
               max="100"
               step="1"
               value="100" />
           </div>
         </div>
-
+        <hr />
         <div class="mt-4 d-flex gap-3">
-          <button id="master-toggle" class="btn btn-dark">play/pause</button>
+          <button id="master-toggle" class="btn btn-outline-dark">
+            play / pause
+          </button>
           <button id="all-off" class="btn btn-outline-secondary">
             mute all
           </button>
