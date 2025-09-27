@@ -10,8 +10,9 @@ $btn-font-size: 1.2rem;
 $body-bg: #fcfbf9;
 $light: #fcfbf9;
 $primary: #333;
-$secondary: #eb9c35;
-$info: #f2efd5;
+$secondary: #ffd524;
+$info: #f4eadb;
+$danger: #eb9c35;
 
 $form-range-track-height: 0.3rem;
 $form-range-track-bg: #333;
@@ -42,7 +43,7 @@ p {
 .navbar {
   position: sticky;
   top: 0;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .nav-link.active {
@@ -57,9 +58,16 @@ p {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#loop-station,
+#loop-station {
+  background: url("/be-alright/background2.png") center center / cover no-repeat;
+}
+
+#behindthesong {
+  background: url("/be-alright/fifiblur.png") center center / cover no-repeat;
+}
+
 #home {
-  background: url("/be-alright/background.png") center center / cover no-repeat;
+  background: url("/be-alright/whitebg.png") center center / cover no-repeat;
 }
 
 /* Sidebar */
@@ -113,5 +121,5 @@ p {
 strong {
   font-family: "Instrument Serif", serif;
   font-size: 2rem;
-  color: $secondary;
+  color: $danger;
 }

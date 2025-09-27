@@ -23,7 +23,7 @@ const observer = new IntersectionObserver(
 
       // Navbar-Transparenz
       const id = entry.target.id;
-      if (id === "about" || id === "loop-station" || id === "behindthesong") {
+      if (id === "about" || id === "loop-station" || id === "home") {
         navbar.classList.add("transparent");
       } else {
         navbar.classList.remove("transparent");
