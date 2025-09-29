@@ -2,7 +2,7 @@ import "./styles.scss";
 import "bootstrap";
 
 /* ===========================
-   Navbar: Active Link + Transparenz
+   Navbar: Active Link + Farbe
    =========================== */
 const navbar = document.querySelector(".navbar");
 const sections = document.querySelectorAll(".page-section");
@@ -21,12 +21,12 @@ const observer = new IntersectionObserver(
       const link = findLink(entry.target.id);
       if (link) link.classList.add("active");
 
-      // Navbar-Transparenz
+      // Navbar-Farbe
       const id = entry.target.id;
-      if (id === "about" || id === "loop-station" || id === "home") {
-        navbar.classList.add("transparent");
+      if (id === "loop-station") {
+        navbar.classList.add("text-light");
       } else {
-        navbar.classList.remove("transparent");
+        navbar.classList.remove("text-light");
       }
     });
   },
@@ -232,9 +232,44 @@ document
   .getElementById("master-toggle")
   ?.addEventListener("click", async () => {
     await loadBuffersOnce();
-    if (ctx.state === "running") await ctx.suspend();
-    else await ctx.resume();
+
+    // einmalig Listener setzen
+    if (!ctx._stateListenerBound) {
+      ctx.onstatechange = refreshMasterIcon;
+      ctx._stateListenerBound = true;
+    }
+
+    if (ctx.state === "running") {
+      await ctx.suspend();
+    } else {
+      await ctx.resume();
+    }
+
+    // sofort UI refreshen (falls onstatechange minimal verzögert feuert)
+    refreshMasterIcon();
   });
+
+// === Master-Button Icon steuern ===
+const masterBtn = document.getElementById("master-toggle");
+const masterIcon = masterBtn?.querySelector("i");
+
+function refreshMasterIcon() {
+  if (!masterIcon) return;
+  const running = ctx && ctx.state === "running";
+
+  // gewünschte Icons:
+  // - Wenn gestartet werden soll -> "play" anzeigen
+  // - Wenn pausiert werden soll -> "play-pause" anzeigen
+  masterIcon.classList.remove("bi-play-fill", "bi-play-pause");
+  masterIcon.classList.add(running ? "bi-play-pause" : "bi-play-fill");
+
+  // Bonus: A11y / Tooltip
+  masterBtn?.setAttribute("aria-label", running ? "Pause all" : "Play all");
+  masterBtn?.setAttribute("title", running ? "Pause" : "Play");
+}
+
+// Beim ersten Laden: Play zeigen
+refreshMasterIcon();
 
 // ===== Sidebar Toggle + Click-Outside =====
 const sidebarEl = document.getElementById("loop-sidebar");

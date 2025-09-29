@@ -52,22 +52,22 @@ p {
   text-decoration-thickness: 1px;
 }
 
-.navbar.transparent {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+.navbar .logo {
+  width: 70px;
+  height: 70px;
+  display: block;
 }
 
-#loop-station {
-  background: url("/be-alright/background2.png") center center / cover no-repeat;
-}
-
-#behindthesong {
-  background: url("/be-alright/fifiblur.png") center center / cover no-repeat;
+.navbar.text-light .logo {
+  fill: $light;
 }
 
 #home {
-  background: url("/be-alright/whitebg.png") center center / cover no-repeat;
+  background: url("/be-alright/kleeblatt.gif") center center / cover no-repeat;
+}
+
+#loop-station {
+  background: url("/be-alright/tree.gif") center center / cover no-repeat;
 }
 
 /* Sidebar */
